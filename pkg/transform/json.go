@@ -7,7 +7,7 @@ var json = jsoniter.ConfigCompatibleWithStandardLibrary
 // JSONUnmarshal prefer use jsoniter module than standard mod
 // due to performance issues
 func JSONUnmarshal(d []byte, v interface{}) error {
-	return json.Unmarshal(v)
+	return json.Unmarshal(d, v)
 }
 
 // JSONMarshal function to serialize struct to array of byte

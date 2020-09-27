@@ -8,7 +8,7 @@ type User struct {
 	LikeCount uint   `json:"likeCount"`
 }
 
-// Serialize ..
+// Serialize as you can see user serialize self by serializer method
 func (u *User) Serialize(s *interfaces.Serializer) error {
 	return s.Transform(u)
 }

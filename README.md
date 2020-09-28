@@ -1,14 +1,16 @@
 # Go Simple Clean Architecture
-Personal version of clean architecture boilerplate.  
+**Personal version of clean architecture boilerplate.**  
 
+
+## About
 I created this project to learn about clean architecture
 but i simplify it so probably it's look more beginner-friendly.  
-
 I build with bottom-up approach (lol idk how to name it) that's mean
 every rule from bottom is responsible with higher level until it reach the top level,
 and higher level can't access their lower level because more high the level more user-level
 developer can write the code e.g: `AddUpvoterFromPost`  
 
+## Logic
 Now we just focus in internal folder which is the heart of application.  
 
 We already know that most of application use to logic such as:  
@@ -24,6 +26,8 @@ We already know that most of application use to logic such as:
   and check if Reikaa balance is more or same with stuff total price.  
 
 You get a point right?  
+
+## Architecture
 
 list of rule from low to high:
 - infrastructure  
@@ -52,6 +56,35 @@ list of rule from low to high:
   such as:
   - user A like your photos please call function `AddLikeFromPost`  
   - user C want to delete their account so we will use `PurgeSpecifiedAccount` to delete all their data like: photos, friends which need aggregate and transaction context  
+
+
+## Folder Structure  
+---
+
+```
+├── cmd                          # contains implementation from internal core package
+│   └── application              # construct server side
+│       ├── handler              # handler/controller to access domain logic
+│       │   ├── helpers.go       # known human-level return code from domain logic
+│       │   └── insert_user.go   # example of implementation domain logic
+│       └── server.go            # file endpoint to run the server
+├── config                       # config file for specific environment
+│   └── dev.env
+├── docs                         # docs file like swagger, insomnia, etc
+├── internal                     # heart of this application i already notice about
+│   ├── domain
+│   ├── infrastructure
+│   ├── interfaces
+│   └── usecase
+├── main.go                      # this file used to run main application from cmd and autodetect to build server like heroku
+├── makefile                     # few shortcut command to dockerize, build, and run app
+├── pkg                          # shareable package idk but i felt comfort while creating this
+│   ├── structs
+│   ├── system
+│   └── transform
+└── store                        # folder i create for storing seed (as a json file)
+```
+
 
 
 ### Sorry But i'll update this soon

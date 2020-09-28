@@ -44,7 +44,7 @@ list of rule from low to high:
   and single responsibility for each schema  
   such as:
   - user model which contain function insert data and if exist by id  
-  - checkout model which insert stuff_id and user_id  
+  - checkout model which contain function count to check how many checkout is created  
 - domain  
   finally the most understandable level that wrap one or many usecase model  
   and domain layer is mostly responsible for business logic even the non-tech person understand what are you writing for  

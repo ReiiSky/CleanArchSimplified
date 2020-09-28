@@ -85,6 +85,11 @@ list of rule from low to high:
 └── store                        # folder i create for storing seed (as a json file)
 ```
 
+## Technologies
+- [Echo](github.com/labstack/echo)
+- [Resty](github.com/go-resty/resty)
+- [Json-iterator](github.com/json-iterator/go)
+- [Kamva](github.com/Kamva/mgm/v3)
 
 
 ### Sorry But i'll update this soon

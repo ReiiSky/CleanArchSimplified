@@ -40,12 +40,14 @@ list of rule from low to high:
   - deserialize byte from database connection
 - usecase
   usecase wrap interface to implement higher level data-manipulation
+  this layer tend to application but with a bit of business logic
   and single responsibility for each schema  
   such as:
   - user model which contain function insert data and if exist by id  
   - checkout model which insert stuff_id and user_id  
 - domain  
   finally the most understandable level that wrap one or many usecase model  
+  and domain layer is mostly responsible for business logic even the non-tech person understand what are you writing for  
   this function can construct complex logic but with simple input and of course with validation too  
   such as:
   - user A like your photos please call function `AddLikeFromPost`  

@@ -36,13 +36,13 @@ list of rule from low to high:
   such as:
   - connect this application to port 6379 which is the port for redis-server
   - get default database connection that already set from config file
-- interfaces
+- interfaces  
   interface mostly used for parse, transform from incoming and outgoing data
   this layer tend to pure application logic  
   such as:
   - parse this byte from request to specified struct type
   - deserialize byte from database connection
-- usecase
+- usecase  
   usecase wrap interface to implement higher level data-manipulation
   this layer tend to application but with a bit of business logic
   and single responsibility for each schema  

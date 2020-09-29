@@ -3,11 +3,11 @@
 
 
 ## About
-I created this project to learn about clean architecture
-but i simplify it so probably it's look more beginner-friendly.  
-I build with bottom-up approach (lol idk how to name it) that's mean
-every rule from bottom is responsible with higher level until it reach the top level,
-and higher level can't access their lower level because more high the level more user-level
+I created this project to learn more about clean architecture
+but i simplify it so it probably look more beginner-friendly.  
+I build it with a bottom-up approach (lol idk how to name it) that means
+every rule from the bottom is responsible with the higher level until it reaches the top level,
+and higher level can't access their lower level because the more high the level is the more user-level
 developer can write the code e.g: `AddUpvoterFromPost`  
 
 ## Logic
@@ -15,7 +15,7 @@ Now we just focus in internal folder which is the heart of application.
 
 We already know that most of application use to logic such as:  
 - Application-logic  
-  which responsible to be mediator among pure business logic and low level application  
+  which responsible to be the mediator among pure business logic and low level application  
   this logic usually not understandable for product and business team  
   because this logic more tend to application-specific  
   e.g: parse json byte to struct of byte and insert it to database
@@ -25,7 +25,7 @@ We already know that most of application use to logic such as:
   e.g: Reikaa(my lovely waifu) must checkout stuff before she can pay it,  
   and check if Reikaa balance is more or same with stuff total price.  
 
-You get a point right?  
+You get the point right?  
 
 ## Architecture
 

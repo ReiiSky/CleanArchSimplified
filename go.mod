@@ -4,6 +4,7 @@ go 1.14
 
 require (
 	github.com/Kamva/mgm/v3 v3.0.1
+	github.com/go-ozzo/ozzo-validation/v4 v4.2.2 // indirect
 	github.com/go-resty/resty/v2 v2.3.0 // indirect
 	github.com/joho/godotenv v1.3.0
 	github.com/json-iterator/go v1.1.10

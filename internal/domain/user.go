@@ -15,12 +15,14 @@ func CreateUserLogic() *UserLogic {
 	return new(UserLogic)
 }
 
-// Compose composing member model in userlogic
+// Compose member model in userlogic
 func (l *UserLogic) Compose(s *interfaces.Serializer) error {
 	return l.user.Serialize(s)
 }
 
-// RegisterIfNotExist pure business logic for registering user
-func (l *UserLogic) RegisterIfNotExist() (string, error) {
+// Register pure business logic for registering user
+// first return value is response to the user whats happend in the server
+// check cmd/application/handler/helpers.go
+func (l *UserLogic) Register() (string, error) {
 	return "conflict->user already exist", nil
 }

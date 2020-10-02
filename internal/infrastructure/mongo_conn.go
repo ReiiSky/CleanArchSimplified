@@ -18,6 +18,11 @@ func SetupMongoConnection(dbname, mongoURL string) error {
 	return err
 }
 
+// CreateMongoConnection if opts is empty will use default config
+func CreateMongoConnection(opts ...*options.ClientOptions) (*mongo.Client, error) {
+	return mgm.NewClient(opts...)
+}
+
 // SetDefaultClient set default mongo client variable
 func SetDefaultClient(client *mongo.Client) {
 	defaultMongoClient = client

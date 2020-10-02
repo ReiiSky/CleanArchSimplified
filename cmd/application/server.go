@@ -11,10 +11,15 @@ import (
 // RunServer run server with specified port
 func RunServer(port string) {
 	infrastructure.SetupMongoConnection(os.Getenv("DBNAME"), os.Getenv("MONGOURL"))
+	client, err := infrastructure.CreateMongoConnection()
 
+	if err != nil {
+		panic(err)
+	}
+
+	infrastructure.SetDefaultClient(client)
 	server := echo.New()
 	defer server.Start(port)
-
 	registerRoute(server)
 
 }

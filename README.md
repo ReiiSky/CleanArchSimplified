@@ -90,6 +90,8 @@ list of rule from low to high:
 - [Resty](github.com/go-resty/resty)
 - [Json-iterator](github.com/json-iterator/go)
 - [Kamva](github.com/Kamva/mgm/v3)
+- [Zerolog](github.com/rs/zerolog)
+- [Ozzo-validation](github.com/go-ozzo/ozzo-validation/v4)
 
 
 ### Sorry But i'll update this soon

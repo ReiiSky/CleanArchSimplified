@@ -17,13 +17,15 @@ func InsertUser(c echo.Context) error {
 		err = interfaces.ComposeToConcreteObject(logic, &bytes)
 		if err == nil {
 			var status string
-			status, err = logic.RegisterIfNotExist()
+			status, err = logic.Register()
 
 			if err == nil {
 				statusCode, message := ParseDomainMessage(status)
-				return c.String(statusCode, message)
+				if statusCode >= 200 {
+					return c.String(statusCode, message)
+				}
 			}
 		}
 	}
-	return c.NoContent(statusCode)
+	return c.String(statusCode, err.Error())
 }

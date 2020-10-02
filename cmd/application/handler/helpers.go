@@ -3,9 +3,11 @@ package handler
 import "strings"
 
 var knownDomainStatusCode = map[string]int{
-	"conflict": 409,
-	"ok":       200,
-	"created":  201,
+	"internal-error": 500,
+	"conflict":       409,
+	"ok":             200,
+	"created":        201,
+	"accepted":       202,
 }
 
 // ParseDomainMessage ..

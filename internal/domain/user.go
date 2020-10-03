@@ -43,7 +43,7 @@ func (l *UserLogic) Register() (string, error) {
 				userResponse = fmt.Sprintf("created->user has been created with %v", oID)
 			} else {
 				log.
-					Info().
+					Error().
 					Msgf("insert user document error with message: %v", err)
 			}
 		} else {

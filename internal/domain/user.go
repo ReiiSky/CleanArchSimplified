@@ -5,7 +5,6 @@ import (
 
 	"github.com/Satssuki/CleanArchSimplified/internal/interfaces"
 	"github.com/Satssuki/CleanArchSimplified/internal/usecase"
-	"github.com/rs/zerolog/log"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
@@ -37,14 +36,7 @@ func (l *UserLogic) Register() (string, error) {
 
 			oID, err = l.user.Insert()
 			if err == nil {
-				log.
-					Info().
-					Msgf("user registered with username: %v", l.user.Username)
 				userResponse = fmt.Sprintf("created->user has been created with %v", oID)
-			} else {
-				log.
-					Error().
-					Msgf("insert user document error with message: %v", err)
 			}
 		} else {
 			userResponse = "conflict->user already exist"

@@ -5,6 +5,7 @@ import (
 
 	"github.com/Satssuki/CleanArchSimplified/internal/domain"
 	"github.com/Satssuki/CleanArchSimplified/internal/interfaces"
+	"github.com/Satssuki/CleanArchSimplified/pkg/structs"
 	"github.com/labstack/echo/v4"
 )
 
@@ -13,19 +14,21 @@ func InsertUser(c echo.Context) error {
 	logic := domain.CreateUserLogic()
 	bytes, err := ioutil.ReadAll(c.Request().Body)
 	var statusCode int = 400
+	var responseMessage structs.Any
+
 	if err == nil {
 		err = interfaces.ComposeToConcreteObject(logic, &bytes)
 		if err == nil {
-			var status string
-			status, err = logic.Register()
+			var message string
+			message, err = logic.Register()
 
 			if err == nil {
-				statusCode, message := ParseDomainMessage(status)
+				statusCode, message = ParseDomainMessage(message)
 				if statusCode >= 200 {
-					return c.String(statusCode, message)
+					responseMessage["message"] = message
 				}
 			}
 		}
 	}
-	return c.String(statusCode, err.Error())
+	return c.JSON(statusCode, responseMessage)
 }

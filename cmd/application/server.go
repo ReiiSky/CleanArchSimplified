@@ -9,8 +9,11 @@ import (
 )
 
 // RunServer run server with specified port
-func RunServer(port string) error {
+func RunServer() error {
 	infrastructure.LoadDevEnvironment()
+
+	var port = os.Getenv("PORT")
+
 	infrastructure.SetupMongoConnection(os.Getenv("DBNAME"), os.Getenv("MONGOURL"))
 	client, err := infrastructure.CreateMongoConnection()
 	err = infrastructure.MongoClientPing(client)
